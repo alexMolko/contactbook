@@ -1,1 +1,18 @@
-<p>contact-list works!</p>
+<div class="main-container">
+<div>
+	<table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Last name</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let contact of contacts | async">
+				<td>{{contact.Name}}</td>
+				<td>{{contact.LastName}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</div>
