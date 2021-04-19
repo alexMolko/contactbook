@@ -1,1 +1,49 @@
-<p>contact-add workss!</p>
+<div class="container">
+	<form action="" (ngSubmit)="onSubmit()">
+		<h2>Register new contact</h2>
+		<div class="row">
+			<div class="col-25">
+				<label for="fname">Name</label>
+			</div>
+			<div class="col-75">
+				<input type="text" name="name" id="fname"  [(ngModel)]="name">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-25">
+				<label for="flname"> Last name </label>
+			</div>
+			<div class="col-75">
+				<input type="text" name="lastName" id="flname"  [(ngModel)]="lastname">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-25">
+				<label for="fphone"> Phone number </label>
+			</div>
+			<div class="col-75">
+				<input type="text" name="phone" id="fphone"  [(ngModel)]="phone">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-25">
+				<label> Email </label>
+			</div>
+			<div class="col-75">
+				<input type="text" name="email" id=""  [(ngModel)]="email">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-25">
+				<label> Adress </label>
+			</div>
+			<div class="col-75">
+				<input type="text" name="address" id=""  [(ngModel)]="address">
+			</div>
+		</div>
+		<div class="row">
+    		<input type="submit" value="Add">
+  		</div>
+		
+	</form>
+</div>

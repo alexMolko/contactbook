@@ -1,5 +1,6 @@
 import { Contact } from '../../models/contact.model';
 import {createReducer,on} from '@ngrx/store';
+import  {addContact } from './contact.actions';
 
 const initialState={
 	contact:[
@@ -9,7 +10,16 @@ const initialState={
 	]
 };
 
-const _contactReducer= createReducer(initialState);
+const _contactReducer= createReducer(
+	initialState,
+	on(addContact, (state,action)=> {
+		let contact={...action.contact};
+		contact.id=(state.contact.length + 1);
+		return {
+			...state, contact: [...state.contact,contact]
+		}
+	})
+	);
 
 export function contactReducer(state:any,action:any) {
 	return _contactReducer(state,action);

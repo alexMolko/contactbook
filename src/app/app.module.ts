@@ -10,7 +10,7 @@ import { ContactAddComponent } from './contact-book/contact-add/contact-add.comp
 import { ContactDetailsComponent } from './contact-book/contact-details/contact-details.component';
 
 import {contactReducer} from './contact-book/store/contact.reducer';
-
+import {FormsModule} from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +24,8 @@ import {contactReducer} from './contact-book/store/contact.reducer';
     AppRoutingModule,
     StoreModule.forRoot({
       contact: contactReducer
-    })
+    }),
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
