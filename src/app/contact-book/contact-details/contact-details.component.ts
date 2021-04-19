@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Store,select } from '@ngrx/store';
+import { ActivatedRoute } from '@angular/router';
+import { Contact } from '../../models/contact.model';
+import { AppState } from '../../app.state';
+import { getContactDetails } from '../store/contact.selector'
 
 @Component({
   selector: 'app-contact-details',
@@ -7,7 +12,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactDetailsComponent implements OnInit {
 
-  constructor() { }
+  contact : Contact= new Contact();
+  
+  constructor(private store: Store, private _Activatedroute:ActivatedRoute) {
+  	this._Activatedroute.paramMap.subscribe(params=>{
+  		const id= Number(params.get('id'));
+  		this.store.select(getContactDetails,{id}).subscribe((data)=>{
+  			this.contact=data;
+  		})
+  	})
+  }
 
   ngOnInit(): void {
   }

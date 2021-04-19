@@ -24,6 +24,7 @@ export class ContactAddComponent implements OnInit {
   	const contact= new Contact();
   	contact.Name=this.name;
   	contact.LastName=this.lastname;
+    contact.Phone=this.phone;
   	contact.Email=this.email;
   	contact.Address=this.address;
 
