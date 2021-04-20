@@ -8,7 +8,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr *ngFor="let contact of contacts | async" [ngClass]="{ 'highlighted': contact == selected }" >
+			<tr class="list-contacts" *ngFor="let contact of contacts | async" [ngClass]="{ 'highlighted': contact == selected }" >
 				<td><a [routerLink]="['/details', contact.id]" target="_blank"  (click)="onSelected(contact)" >{{contact.Name}} </a></td>
 				<td><a [routerLink]="['/details', contact.id]" target="_blank" (click)="onSelected(contact)"  >{{contact.LastName}}</a></td>
 			</tr>

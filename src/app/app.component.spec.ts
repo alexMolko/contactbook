@@ -1,15 +1,30 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-
+import { HeaderComponent } from './header/header.component';
+import { ContactListComponent } from './contact-book/contact-list/contact-list.component';
+import { ContactAddComponent } from './contact-book/contact-add/contact-add.component';
+import { ContactDetailsComponent } from './contact-book/contact-details/contact-details.component';
+import {StoreModule} from '@ngrx/store';
+import {contactReducer} from './contact-book/store/contact.reducer';
+import {FormsModule} from '@angular/forms';
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        StoreModule.forRoot({
+      contact: contactReducer
+      }),
+      FormsModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        HeaderComponent,
+        ContactListComponent,
+        ContactAddComponent,
+        ContactDetailsComponent
+
       ],
     }).compileComponents();
   });
@@ -26,10 +41,5 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('contact-book');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('contact-book app is running!');
-  });
+
 });

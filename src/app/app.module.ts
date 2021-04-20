@@ -11,6 +11,7 @@ import { ContactDetailsComponent } from './contact-book/contact-details/contact-
 
 import {contactReducer} from './contact-book/store/contact.reducer';
 import {FormsModule} from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
