@@ -12,11 +12,15 @@ import { getContacts } from '../store/contact.selector';
 export class ContactListComponent implements OnInit {
 
   contacts: Observable<Contact[]>= new Observable<Contact[]>();
-
+  selected: Contact= new Contact();
   constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
   	this.contacts=this.store.select(getContacts);
+  }
+
+  onSelected(contact:Contact){
+  	this.selected=contact;
   }
 
 }
