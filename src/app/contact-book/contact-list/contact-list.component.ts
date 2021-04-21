@@ -13,6 +13,8 @@ export class ContactListComponent implements OnInit {
 
   contacts: Observable<Contact[]>= new Observable<Contact[]>();
   selected: Contact= new Contact();
+  id=1;
+  showdetail: boolean=false;
   constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
@@ -21,6 +23,8 @@ export class ContactListComponent implements OnInit {
 
   onSelected(contact:Contact){
   	this.selected=contact;
+    this.id=contact.id;
+    this.showdetail=true;
   }
 
 }
